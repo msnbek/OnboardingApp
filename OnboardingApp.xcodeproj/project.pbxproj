@@ -12,6 +12,12 @@
 		ED69F6C029A3EF7100FC4E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED69F6BF29A3EF7100FC4E75 /* Assets.xcassets */; };
 		ED69F6C329A3EF7100FC4E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED69F6C129A3EF7100FC4E75 /* LaunchScreen.storyboard */; };
 		ED69F6CE29A3F00800FC4E75 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69F6CD29A3F00800FC4E75 /* OnboardingViewController.swift */; };
+		ED69F6D529A3F2FF00FC4E75 /* 125704-blue-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = ED69F6D229A3F2FF00FC4E75 /* 125704-blue-loading.json */; };
+		ED69F6D629A3F2FF00FC4E75 /* 137268-dancing-book.json in Resources */ = {isa = PBXBuildFile; fileRef = ED69F6D329A3F2FF00FC4E75 /* 137268-dancing-book.json */; };
+		ED69F6D729A3F2FF00FC4E75 /* 133887-prelouder-chasy.json in Resources */ = {isa = PBXBuildFile; fileRef = ED69F6D429A3F2FF00FC4E75 /* 133887-prelouder-chasy.json */; };
+		ED69F6D929A3F37A00FC4E75 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69F6D829A3F37A00FC4E75 /* OnboardingView.swift */; };
+		ED69F6DB29A3F4CD00FC4E75 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69F6DA29A3F4CD00FC4E75 /* OnboardingViewModel.swift */; };
+		ED69F6E129A4228500FC4E75 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69F6E029A4228500FC4E75 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		ED69F6C229A3EF7100FC4E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED69F6C429A3EF7100FC4E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED69F6CD29A3F00800FC4E75 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		ED69F6D229A3F2FF00FC4E75 /* 125704-blue-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "125704-blue-loading.json"; sourceTree = "<group>"; };
+		ED69F6D329A3F2FF00FC4E75 /* 137268-dancing-book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "137268-dancing-book.json"; sourceTree = "<group>"; };
+		ED69F6D429A3F2FF00FC4E75 /* 133887-prelouder-chasy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "133887-prelouder-chasy.json"; sourceTree = "<group>"; };
+		ED69F6D829A3F37A00FC4E75 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		ED69F6DA29A3F4CD00FC4E75 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		ED69F6E029A4228500FC4E75 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,8 @@
 		ED69F6B529A3EF7000FC4E75 /* OnboardingApp */ = {
 			isa = PBXGroup;
 			children = (
+				ED69F6DC29A3F74600FC4E75 /* Model */,
+				ED69F6D129A3F2EA00FC4E75 /* Lotties */,
 				ED69F6D029A3F29900FC4E75 /* ViewModel */,
 				ED69F6CF29A3F28A00FC4E75 /* View */,
 				ED69F6CC29A3EFF700FC4E75 /* Controllers */,
@@ -93,6 +107,8 @@
 		ED69F6CF29A3F28A00FC4E75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ED69F6DD29A3FF6A00FC4E75 /* Cell */,
+				ED69F6D829A3F37A00FC4E75 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,8 +116,34 @@
 		ED69F6D029A3F29900FC4E75 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				ED69F6DA29A3F4CD00FC4E75 /* OnboardingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED69F6D129A3F2EA00FC4E75 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				ED69F6D229A3F2FF00FC4E75 /* 125704-blue-loading.json */,
+				ED69F6D429A3F2FF00FC4E75 /* 133887-prelouder-chasy.json */,
+				ED69F6D329A3F2FF00FC4E75 /* 137268-dancing-book.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
+		ED69F6DC29A3F74600FC4E75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED69F6DD29A3FF6A00FC4E75 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED69F6E029A4228500FC4E75 /* CollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +204,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED69F6D629A3F2FF00FC4E75 /* 137268-dancing-book.json in Resources */,
 				ED69F6C329A3EF7100FC4E75 /* LaunchScreen.storyboard in Resources */,
 				ED69F6C029A3EF7100FC4E75 /* Assets.xcassets in Resources */,
+				ED69F6D529A3F2FF00FC4E75 /* 125704-blue-loading.json in Resources */,
+				ED69F6D729A3F2FF00FC4E75 /* 133887-prelouder-chasy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +219,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED69F6DB29A3F4CD00FC4E75 /* OnboardingViewModel.swift in Sources */,
 				ED69F6B729A3EF7000FC4E75 /* AppDelegate.swift in Sources */,
+				ED69F6E129A4228500FC4E75 /* CollectionViewCell.swift in Sources */,
+				ED69F6D929A3F37A00FC4E75 /* OnboardingView.swift in Sources */,
 				ED69F6CE29A3F00800FC4E75 /* OnboardingViewController.swift in Sources */,
 				ED69F6B929A3EF7000FC4E75 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,14 +7,28 @@
 
 import UIKit
 
-class OnboardingViewController: UIViewController {
-
+class OnboardingViewController: UIViewController{
+  
+    
+//MARK: - Properties
+    
+    var collectionViewVariables = OnboardingViewController.collectionView
+    var pageControlVariable = OnboardingViewController.pageControl
+    var getStartedButtonVariable = OnboardingViewController.startedButton
+    
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .red
+style()
+        view.backgroundColor = .white
+        collectionViewVariables.delegate = self
+        collectionViewVariables.dataSource = self
+        
         
     }
+    
+   
     
 
     /*
@@ -28,3 +42,6 @@ class OnboardingViewController: UIViewController {
     */
 
 }
+
+//MARK: - Helpers
+
