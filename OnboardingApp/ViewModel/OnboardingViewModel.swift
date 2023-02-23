@@ -18,6 +18,7 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         cell.configureCell(page: OnboardingViewController.pages[indexPath.item])
+        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -27,11 +28,18 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControlVariable.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        print(Int(scrollView.contentOffset.x) / Int(scrollView.frame.width))
+       // print(Int(scrollView.contentOffset.x) / Int(scrollView.frame.width))
+        if pageControlVariable.currentPage == OnboardingViewController.pages.count - 1  {
+            
+            getStartedButtonVariable.setTitle("Start", for: UIControl.State.normal)
+        }else {
+            getStartedButtonVariable.isHidden = false
+        }
     }
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
 
         pageControlVariable.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+     
     }
   
     
@@ -44,20 +52,23 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
     @objc func pageControlHandle(_ sender : Any) {
         let pc = sender as! UIPageControl
        
+        print(pc.currentPage)
         
         collectionViewVariables.scrollToItem(at: IndexPath(item: pc.currentPage, section: 0), at: .left, animated: true)
       
         
         
     }
-    @objc func getStartedButtonClicked(_ sender : AnyObject) {
-        print(pageControlVariable.currentPage)
-        print(OnboardingViewController.pages.count)
+    @objc func getStartedButtonClicked(_ sender : Any) {
+      
+        
+       
+        
         if pageControlVariable.currentPage < OnboardingViewController.pages.count {
             collectionViewVariables.scrollToNextItem()
             
         }
-        if pageControlVariable.currentPage == 1 {
+        if pageControlVariable.currentPage == OnboardingViewController.pages.count - 2  {
             
             getStartedButtonVariable.setTitle("Start", for: UIControl.State.normal)
         }else {

@@ -11,6 +11,8 @@ extension OnboardingViewController {
     
    static let pages : [Page] = [Page(animationName: "animation1", title: "Learn to Code", description: "Find awesome tutorials on how to code and improve your conding practies"),
                           Page(animationName: "animation2", title: "Code with Friends", description: "Pratice with friends and solve problems together to earn points"),
-                          Page(animationName: "animation3", title: "Always there to help", description: "Having trouble? Get guidance from our experienced Mentors")
+                          Page(animationName: "animation3", title: "Always there to help", description: "Having trouble? Get guidance from our experienced Mentors"),
+                               // Page(animationName: "animation4", title: "Try1", description: "jkasfhkjasbfhasbfhasbfhasbjfhabshjfbahsfbhasbfhabjsfjhbaslhfjbasflhjabshfjbashfbhasgfhasfbhsabhfbashfbahjsbfhjabhfbashfbhabhjsfbhasbfhjasbhfbhjasbfhasbhjfbahsfbhjabhfbahjfbhabjhfbashjfbahjsfbhjasbfhasbfhjabshfbhjasbfabsjfbashjbfasfhuasfuıhauısfpıhafıupahsuıfhsuahfuıhısufhuıashufhausıfhuıashuıfhuashufhausıfhıahfıuashfıashufhasufhuashuıfaıusfhuıausıfuıahfuasfaasfasfasfa"),
+                            //    Page(animationName: "animation5", title: "Try3", description: "Try4")
     ]
 }

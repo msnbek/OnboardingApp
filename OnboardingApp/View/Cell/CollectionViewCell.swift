@@ -8,15 +8,15 @@
 import UIKit
 import Lottie
 
-class CollectionViewCell : UICollectionViewCell {
+class CollectionViewCell : UICollectionViewCell, UITextViewDelegate {
     
     //MARK: - Properties
     
     var animation = LottieAnimationView()
     
-     private let cellView : UIView = {
+     private let cellView : LottieAnimationView = {
        
-        let view = UIView()
+        let view = LottieAnimationView()
          view.backgroundColor = .white
        
     
@@ -37,19 +37,34 @@ class CollectionViewCell : UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .left
         label.text = "Title"
-        label.font = .systemFont(ofSize: 32, weight: UIFont.Weight.semibold)
+        label.font = .systemFont(ofSize: 30, weight: UIFont.Weight.semibold)
         return label
     }()
     
-    private let textView : UILabel = {
+    private let textView : UITextView = {
        
-        let textView = UILabel()
+        let textView = UITextView(frame: .zero)
         textView.text = "Some Text"
         textView.textColor = .black
         textView.textAlignment = .left
-        textView.numberOfLines = 0
         textView.textColor = .lightGray
-        textView.font = .systemFont(ofSize: 25, weight: UIFont.Weight.medium)
+        textView.contentInsetAdjustmentBehavior = .automatic
+        textView.textAlignment = .center
+        textView.font = .systemFont(ofSize: 23, weight: UIFont.Weight.medium)
+      
+        textView.backgroundColor = .secondarySystemBackground
+        textView.textColor = .secondaryLabel
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.layer.cornerRadius = 20
+        textView.textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        textView.layer.shadowColor = UIColor.black.cgColor
+        textView.layer.shadowOffset = CGSize(width: 0.75, height: 0.75)
+        textView.layer.shadowOpacity = 0.4
+        textView.layer.shadowRadius = 20
+        textView.layer.masksToBounds = false
+        textView.layer.cornerRadius = 20
+        textView.textContainer.maximumNumberOfLines = 10
+        textView.textContainer.lineBreakMode = .byTruncatingTail
         return textView
     }()
     
@@ -64,6 +79,7 @@ class CollectionViewCell : UICollectionViewCell {
         super.init(frame: frame)
         
         layout()
+        textView.delegate = self
  
     }
     
@@ -72,6 +88,8 @@ class CollectionViewCell : UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
 
     
@@ -97,12 +115,13 @@ class CollectionViewCell : UICollectionViewCell {
             cellView.heightAnchor.constraint(equalToConstant: (contentView.frame.size.height) / 2),
             
          
-            textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             textLabel.topAnchor.constraint(equalTo:cellView.bottomAnchor, constant: 100),
             
             textView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 10),
-            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            textView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
           
             
             dividerView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 3),
@@ -121,9 +140,10 @@ class CollectionViewCell : UICollectionViewCell {
     
     func configureCell( page: Page) {
         animation = LottieAnimationView(name: page.animationName)
-        animation.frame = CGRect(x: 0, y: 0, width: self.frame.width * 0.95 , height: self.frame.height * 0.8)
+        animation.frame = CGRect(x: 0, y: 0, width: self.frame.width  , height: self.frame.height * 0.75)
         animation.animationSpeed = 0.7
         animation.loopMode = .loop
+        animation.clipsToBounds = true
         animation.play()
        addSubview(animation)
         

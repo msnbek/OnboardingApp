@@ -23,6 +23,8 @@
 		EDB3D1D129A4FED4006838C4 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB3D1D029A4FED4006838C4 /* PageModel.swift */; };
 		EDC88D9429A7A9BD00894964 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC88D9329A7A9BD00894964 /* CollectionView.swift */; };
 		EDC88D9629A7BDAF00894964 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC88D9529A7BDAF00894964 /* ViewController.swift */; };
+		EDC88D9829A7CF6200894964 /* animation4.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC88D9729A7CF6200894964 /* animation4.json */; };
+		EDC88D9A29A7D0E900894964 /* animation5.json in Resources */ = {isa = PBXBuildFile; fileRef = EDC88D9929A7D0E900894964 /* animation5.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		EDB3D1D029A4FED4006838C4 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		EDC88D9329A7A9BD00894964 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		EDC88D9529A7BDAF00894964 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDC88D9729A7CF6200894964 /* animation4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation4.json; sourceTree = "<group>"; };
+		EDC88D9929A7D0E900894964 /* animation5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation5.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 				ED69F6D229A3F2FF00FC4E75 /* animation1.json */,
 				ED69F6D429A3F2FF00FC4E75 /* animation2.json */,
 				ED69F6D329A3F2FF00FC4E75 /* animation3.json */,
+				EDC88D9729A7CF6200894964 /* animation4.json */,
+				EDC88D9929A7D0E900894964 /* animation5.json */,
 			);
 			path = Lotties;
 			sourceTree = "<group>";
@@ -234,7 +240,9 @@
 			files = (
 				ED69F6D629A3F2FF00FC4E75 /* animation3.json in Resources */,
 				ED69F6C329A3EF7100FC4E75 /* LaunchScreen.storyboard in Resources */,
+				EDC88D9A29A7D0E900894964 /* animation5.json in Resources */,
 				ED69F6C029A3EF7100FC4E75 /* Assets.xcassets in Resources */,
+				EDC88D9829A7CF6200894964 /* animation4.json in Resources */,
 				ED69F6D529A3F2FF00FC4E75 /* animation1.json in Resources */,
 				ED69F6D729A3F2FF00FC4E75 /* animation2.json in Resources */,
 			);
