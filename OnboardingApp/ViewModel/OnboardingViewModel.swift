@@ -12,12 +12,12 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
     //MARK: - CollectionView Delegates
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return OnboardingViewController.pages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.backgroundColor = .clear
+        cell.configureCell(page: OnboardingViewController.pages[indexPath.item])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -25,17 +25,90 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
       
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControlVariable.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        print(Int(scrollView.contentOffset.x) / Int(scrollView.frame.width))
+    }
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+
+        pageControlVariable.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+  
+    
+    
+   
+    
+    
+    //MARK: - Selectors
+    
+    @objc func pageControlHandle(_ sender : Any) {
+        let pc = sender as! UIPageControl
+       
+        
+        collectionViewVariables.scrollToItem(at: IndexPath(item: pc.currentPage, section: 0), at: .left, animated: true)
+      
+        
+        
+    }
+    @objc func getStartedButtonClicked(_ sender : AnyObject) {
+        print(pageControlVariable.currentPage)
+        print(OnboardingViewController.pages.count)
+        if pageControlVariable.currentPage < OnboardingViewController.pages.count {
+            collectionViewVariables.scrollToNextItem()
+            
+        }
+        if pageControlVariable.currentPage == 1 {
+            
+            getStartedButtonVariable.setTitle("Start", for: UIControl.State.normal)
+        }else {
+            getStartedButtonVariable.isHidden = false
+        }
+        
+        if getStartedButtonVariable.currentTitle == "Start" {
+            getStartedButtonVariable.addTarget(self, action: #selector(startButtonClicked), for: UIControl.Event.touchUpInside)
+        }
+       
+   
+    }
+   @objc func startButtonClicked() {
+        
+        let pushVC = UINavigationController(rootViewController: ViewController())
+       pushVC.modalTransitionStyle = .coverVertical
+       pushVC.modalPresentationStyle = .fullScreen
+       self.present(pushVC, animated: true)
+    }
+    
+    @objc func skipButtonClicked() {
+        
+        let pushVC = UINavigationController(rootViewController: ViewController())
+       pushVC.modalTransitionStyle = .coverVertical
+       pushVC.modalPresentationStyle = .fullScreen
+       self.present(pushVC, animated: true)
+        
+    }
     
     
     
     func style() {
-       
+   
         view.addSubview(collectionViewVariables)
         view.addSubview(pageControlVariable)
         view.addSubview(getStartedButtonVariable)
+        view.addSubview(skipButtonVariables)
+        
         collectionViewVariables.translatesAutoresizingMaskIntoConstraints = false
         pageControlVariable.translatesAutoresizingMaskIntoConstraints = false
         getStartedButtonVariable.translatesAutoresizingMaskIntoConstraints = false
+        skipButtonVariables.translatesAutoresizingMaskIntoConstraints = false
+        
+        skipButtonVariables.addTarget(self, action: #selector(skipButtonClicked), for: UIControl.Event.touchUpInside)
+        
+        
+        pageControlVariable.numberOfPages = OnboardingViewController.pages.count
+        
+        pageControlVariable.addTarget(self, action: #selector(pageControlHandle), for: UIControl.Event.touchUpInside)
+        getStartedButtonVariable.addTarget(self, action: #selector(getStartedButtonClicked), for: UIControl.Event.touchUpInside)
+        
         
         NSLayoutConstraint.activate([
         
@@ -53,12 +126,18 @@ extension OnboardingViewController :  UICollectionViewDataSource, UICollectionVi
             getStartedButtonVariable.topAnchor.constraint(equalTo: pageControlVariable.bottomAnchor, constant: 20),
             getStartedButtonVariable.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             getStartedButtonVariable.heightAnchor.constraint(equalToConstant: 50),
-            getStartedButtonVariable.widthAnchor.constraint(equalToConstant: 150),
+            getStartedButtonVariable.widthAnchor.constraint(equalToConstant: view.frame.size.width * 0.8),
             
-            
+            skipButtonVariables.topAnchor.constraint(equalTo: view.topAnchor, constant: 65),
+            view.trailingAnchor.constraint(equalTo: skipButtonVariables.trailingAnchor, constant: 25),
+           // skipButtonVariables.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skipButtonVariables.widthAnchor.constraint(equalToConstant: 50),
+            skipButtonVariables.heightAnchor.constraint(equalToConstant: 50)
         
         ])
         
     }
     
 }
+
+

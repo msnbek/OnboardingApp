@@ -14,13 +14,16 @@ class OnboardingViewController: UIViewController{
     
     var collectionViewVariables = OnboardingViewController.collectionView
     var pageControlVariable = OnboardingViewController.pageControl
-    var getStartedButtonVariable = OnboardingViewController.startedButton
+    var getStartedButtonVariable = OnboardingViewController.nextButton
+    var startButtonVariables = OnboardingViewController.startButton
+    var skipButtonVariables = OnboardingViewController.skipButton
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-style()
+        style()
+     //   getStartedButtonHandle()
         view.backgroundColor = .white
         collectionViewVariables.delegate = self
         collectionViewVariables.dataSource = self

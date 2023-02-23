@@ -10,12 +10,17 @@ import UIKit
 extension OnboardingViewController {
     
    static let collectionView : UICollectionView = {
-       
-       let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+       let layout = UICollectionViewFlowLayout()
+       let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.backgroundColor = .clear
        collectionView.isPagingEnabled = true
-      collectionView.showsHorizontalScrollIndicator = true
+       
+       
+       collectionView.alwaysBounceHorizontal = true
+       layout.scrollDirection = .horizontal
+      collectionView.collectionViewLayout = layout
+      collectionView.showsHorizontalScrollIndicator = false
       
         return collectionView
         
@@ -31,14 +36,15 @@ extension OnboardingViewController {
         pageControl.isUserInteractionEnabled = true
         pageControl.numberOfPages = 3
         pageControl.currentPage = 0
+        pageControl.clipsToBounds = true
         return pageControl
         
     }()
     
-    static let startedButton : UIButton = {
+    static let nextButton : UIButton = {
         
         let button = UIButton()
-        button.setTitle("Get Started", for: UIControl.State.normal)
+        button.setTitle("Next", for: UIControl.State.normal)
         button.backgroundColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
         button.setTitleColor(UIColor.white, for: UIControl.State.normal)
         button.contentMode = .scaleToFill
@@ -48,6 +54,34 @@ extension OnboardingViewController {
         button.layer.cornerRadius = 20
       
         return button
+    }()
+    
+    static let startButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Next", for: UIControl.State.normal)
+        button.backgroundColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        button.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        button.contentMode = .scaleToFill
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.layer.cornerRadius = 20
+        return button
+    }()
+    
+    static let skipButton : UIButton = {
+        let button = UIButton(type: .system)
+      //  button.setImage(UIImage(systemName: "xmark.circle"), for: UIControl.State.normal)
+       button.setTitle("Skip", for: UIControl.State.normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20)
+        button.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        button.titleLabel?.numberOfLines = 0
+      //  button.contentMode = .scaleToFill
+        button.clipsToBounds = true
+     // button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        return button
+        
     }()
     
     
